@@ -20,17 +20,16 @@ To store the build image in an image registry, such as Red Hat Quay.io or Docker
 ** An account and permissions to create and manage images in the registry.
 
 To store the build image as a native OpenShift ImageStream::
-** An link:{LinkConfiguringStreamsOpenShift}#literal_output_literal[ImageStream] resource is deployed to the cluster for storing new container images.
+** An link:https://docs.openshift.com/container-platform/latest/openshift_images/images-understand.html#images-imagestream-use_images-understand[ImageStream] resource is deployed to the cluster.
 You must explicitly create an ImageStream for the cluster.
 ImageStreams are not available by default.
-For more information about ImageStreams, see link:{LinkCreatingManagingOpenShiftImages}#managing-image-streams[Managing image streams on OpenShift Container Platform].
 
 .Procedure
 
 . Log in to the OpenShift cluster.
 . Create a {prodname} `KafkaConnect` custom resource (CR) for the connector, or modify an existing one.
-For example, create a `KafkaConnect` CR with the name `dbz-connect.yaml` that specifies the `metadata.annotations` and `spec.build` properties.
-The following example shows an excerpt from a `dbz-connect.yaml` file that describes a `KafkaConnect` custom resource. +
+For example, create a `KafkaConnect` CR that specifies the `metadata.annotations` and `spec.build` properties, as shown in the following example.
+Save the file with a name such as `dbz-connect.yaml`.
 +
 .A `dbz-connect.yaml` file that defines a `KafkaConnect` custom resource that includes a {prodname} connector
 =====================================================================
@@ -90,7 +89,7 @@ include::../{partialsdir}/modules/all-connectors/ref-deploy-{context}-connector-
 |The topic prefix for the database instance or cluster. +
 The specified name must be formed only from alphanumeric characters or underscores. +
 Because the topic prefix is used as the prefix for any Kafka topics that receive change events from this connector, the name must be unique among the connectors in the cluster. +
-This namespace is also used in the names of related Kafka Connect schemas, and the namespaces of a corresponding Avro schema if you integrate the connector with the {link-prefix}:{link-avro-serialization}#avro-serialization[Avro connector].
+This namespace is also used in the names of related Kafka Connect schemas, and the namespaces of a corresponding Avro schema if you integrate the connector with the xref:{link-avro-serialization}#avro-serialization[Avro connector].
 
 |11
 |The list of tables from which the connector captures change events.
