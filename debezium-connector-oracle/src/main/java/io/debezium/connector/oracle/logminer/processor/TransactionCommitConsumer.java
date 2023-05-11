@@ -671,9 +671,4 @@ public class TransactionCommitConsumer implements AutoCloseable, BlockingConsume
             this.transactionIndex = transactionIndex;
         }
     }
-
-    @FunctionalInterface
-    interface Handler<T> {
-        void accept(T event, long eventsProcessed) throws InterruptedException;
-    }
 }

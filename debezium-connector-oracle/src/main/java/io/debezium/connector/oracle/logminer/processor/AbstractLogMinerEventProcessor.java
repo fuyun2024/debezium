@@ -403,7 +403,7 @@ public abstract class AbstractLogMinerEventProcessor<T extends AbstractTransacti
         final ZoneOffset databaseOffset = metrics.getDatabaseOffset();
 
         final boolean skipExcludedUserName = isTransactionUserExcluded(transaction);
-        TransactionCommitConsumer.Handler<LogMinerEvent> delegate = new TransactionCommitConsumer.Handler<>() {
+        Handler<LogMinerEvent> delegate = new Handler<LogMinerEvent>() {
             private int numEvents = getTransactionEventCount(transaction);
 
             @Override

@@ -94,6 +94,8 @@ Docker Maven插件通过检查以下环境变量来解析Docker主机：
 
     $ git clone https://github.com/debezium/debezium.git
     $ cd debezium
+    $  mvn clean source:jar  install '-Dtarget=1.8' '-Denforcer.skip=true' -Dquick -DskipITs '-Dmaven.test.skip=true'
+    $  mvn clean source:jar -rf :debezium-connector-oracle  install '-Dtarget=1.8' '-Denforcer.skip=true' -Dquick -DskipITs '-Dmaven.test.skip=true'
 
 然后用maven构建项目
 

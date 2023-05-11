@@ -96,7 +96,7 @@ public class AbstractIncrementalSnapshotContext<T> implements IncrementalSnapsho
     private AtomicBoolean paused = new AtomicBoolean(false);
     private ObjectMapper mapper = new ObjectMapper();
 
-    private TypeReference<List<LinkedHashMap<String, String>>> mapperTypeRef = new TypeReference<>() {
+    private TypeReference<List<LinkedHashMap<String, String>>> mapperTypeRef =  new TypeReference<List<LinkedHashMap<String, String>>>() {
     };
 
     public AbstractIncrementalSnapshotContext(boolean useCatalogBeforeSchema) {

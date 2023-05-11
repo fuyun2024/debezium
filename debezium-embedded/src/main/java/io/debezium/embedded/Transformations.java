@@ -101,7 +101,7 @@ public class Transformations implements Closeable {
                                                                               Predicate<SourceRecord> predicate,
                                                                               Transformation<SourceRecord> transformation) {
 
-        return new Transformation<>() {
+        return new Transformation<SourceRecord>() {
             @Override
             public SourceRecord apply(SourceRecord sourceRecord) {
                 if (negate ^ predicate.test(sourceRecord)) {

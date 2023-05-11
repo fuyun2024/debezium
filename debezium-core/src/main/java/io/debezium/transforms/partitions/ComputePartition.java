@@ -128,7 +128,7 @@ public class ComputePartition<R extends ConnectRecord<R>> implements Transformat
 
             Optional<Struct> payload = extractPayload(envelope);
 
-            if (payload.isEmpty()) {
+            if (!payload.isPresent()) {
                 return r;
             }
 
